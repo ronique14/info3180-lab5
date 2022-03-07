@@ -29,6 +29,13 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/secure-page')
+@login_required
+def secure_page():
+    """Render a secure page on our website that only logged in users can access."""
+    return render_template('secure_page.html')
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
